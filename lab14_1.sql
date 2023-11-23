@@ -1,14 +1,14 @@
-USE [Lab9];
+USE [Lab14];
 GO
 
 SELECT * FROM BookInLib;
-/* 1) обновление двух или более записей*/
+/* 1) РѕР±РЅРѕРІР»РµРЅРёРµ РґРІСѓС… РёР»Рё Р±РѕР»РµРµ Р·Р°РїРёСЃРµР№*/
 UPDATE BookInLib
 SET StatusID=StatusID+2 WHERE LibID IN (1,3);
 
 SELECT * FROM BookInLib;
 
-/* 2) те же изменения, но в двух операторах*/
+/* 2) С‚Рµ Р¶Рµ РёР·РјРµРЅРµРЅРёСЏ, РЅРѕ РІ РґРІСѓС… РѕРїРµСЂР°С‚РѕСЂР°С…*/
 UPDATE BookInLib
 SET StatusID=StatusID+2 WHERE LibID = 1;
 
@@ -17,8 +17,8 @@ SET StatusID=StatusID+2 WHERE LibID = 3;
 
 SELECT * FROM BookInLib;
 
-/* 3) изменение данных так, чтоб они были в первоначальном состоянии; 
-Последовательность из одного update и insert в виде одной именованной транзакции*/
+/* 3) РёР·РјРµРЅРµРЅРёРµ РґР°РЅРЅС‹С… С‚Р°Рє, С‡С‚РѕР± РѕРЅРё Р±С‹Р»Рё РІ РїРµСЂРІРѕРЅР°С‡Р°Р»СЊРЅРѕРј СЃРѕСЃС‚РѕСЏРЅРёРё; 
+РџРѕСЃР»РµРґРѕРІР°С‚РµР»СЊРЅРѕСЃС‚СЊ РёР· РѕРґРЅРѕРіРѕ update Рё insert РІ РІРёРґРµ РѕРґРЅРѕР№ РёРјРµРЅРѕРІР°РЅРЅРѕР№ С‚СЂР°РЅР·Р°РєС†РёРё*/
 
 UPDATE BookInLib
 SET StatusID=StatusID-2 WHERE LibID = 1;
@@ -32,7 +32,7 @@ ROLLBACK TRAN T1;
 SELECT * FROM BookInLib;
 
 
-/* 4) Поставить select между update и insert, который выбирает все записи из соответствующей таблицы*/
+/* 4) РџРѕСЃС‚Р°РІРёС‚СЊ select РјРµР¶РґСѓ update Рё insert, РєРѕС‚РѕСЂС‹Р№ РІС‹Р±РёСЂР°РµС‚ РІСЃРµ Р·Р°РїРёСЃРё РёР· СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓСЋС‰РµР№ С‚Р°Р±Р»РёС†С‹*/
 
 BEGIN TRAN T1
 UPDATE BookInLib SET StatusID = StatusID+2 WHERE LibID=1;
