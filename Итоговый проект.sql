@@ -49,7 +49,7 @@ DYNAMIC FOR SELECT * FROM Book
 
 OPEN Book_cursor
 FETCH NEXT FROM Book_cursor
-INSERT INTO Book VALUES ('Пушкин А.С.', 'Русалка', 'Росмэн', 3)
+INSERT INTO Book VALUES ('РџСѓС€РєРёРЅ Рђ.РЎ.', 'Р СѓСЃР°Р»РєР°', 'Р РѕСЃРјСЌРЅ', 3)
 WHILE @@FETCH_STATUS = 0
 BEGIN
 	FETCH NEXT FROM Book_cursor
@@ -106,12 +106,12 @@ INSTEAD OF DELETE
 AS
 UPDATE _Book 
 SET isDeleted = 1 WHERE Book_id =(SELECT Book_id FROM deleted) 
-DELETE FROM _Book WHERE Author= 'Пушкин'
+DELETE FROM _Book WHERE Author= 'РџСѓС€РєРёРЅ'
 SELECT * FROM _Book
 
 
 
-INSERT INTO Genre(Genre_name) VALUES('роман'), ('детектив'), ('ужасы'), ('фантастика'), ('проза') 
-INSERT INTO BookStatus (StatusName) VALUES ('в библиотеке'), ('устарела'), ('выдана');
+INSERT INTO Genre(Genre_name) VALUES('СЂРѕРјР°РЅ'), ('РґРµС‚РµРєС‚РёРІ'), ('СѓР¶Р°СЃС‹'), ('С„Р°РЅС‚Р°СЃС‚РёРєР°'), ('РїСЂРѕР·Р°')
+INSERT INTO BookStatus (StatusName) VALUES ('РІ Р±РёР±Р»РёРѕС‚РµРєРµ'), ('СѓСЃС‚Р°СЂРµР»Р°'), ('РІС‹РґР°РЅР°');
 
 
